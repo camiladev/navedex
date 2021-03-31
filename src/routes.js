@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import Login from "./pages/Login";
 
 const isAuthenticated = false;
 
@@ -22,7 +23,7 @@ export default function Routes(){
     return(
         <BrowserRouter>
             <Switch>
-                <Route exact path='/' component={() => <h1>Login</h1>} />
+                <Route exact path='/' component={Login} />
                 <PrivateRoute path='/app' component={() => <h1>APP</h1>} />
 
             </Switch>
