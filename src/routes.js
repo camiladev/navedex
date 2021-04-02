@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { AuthContext } from "./contexts/AuthContext";
 import Login from "./pages/Login";
+import Listing from './pages/private/Listing'
 
-const isAuthenticated = false;
 
 function PrivateRoute({ component: Component, ...rest}){
+    const { isAuthenticated } = useContext(AuthContext)
+
     return(
         <Route {...rest} render={ props => (
             isAuthenticated ? (
                 <Component {...props} />
+                
             ): (
                 <Redirect to={{ pathname: '/', state: { from: props.location}}} />
             )
@@ -24,7 +28,7 @@ export default function Routes(){
         <BrowserRouter>
             <Switch>
                 <Route exact path='/' component={Login} />
-                <PrivateRoute path='/app' component={() => <h1>APP</h1>} />
+                <PrivateRoute path='/navers' component={Listing} />
 
             </Switch>
         </BrowserRouter>

@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import Api from '../services/api'
+import  { Redirect } from 'react-router-dom'
 
 export const AuthContext = createContext({})
 
@@ -7,6 +8,8 @@ export function AuthProvider({children}){
     const [email, setEmail] = useState();
     const [pass, setPass] = useState();
     const [token, setToken] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+       
 
     function handleInputEmail(value){
         const user = value.target.value;
@@ -21,19 +24,20 @@ export function AuthProvider({children}){
     function handleLogin(){
         const response = Api.getLogin({ email, pass}).then( token => {
             setToken(token)
-            return response;
+            setIsAuthenticated(true)           
+
+            return <Redirect to='/navers'  />
         }).catch()
-        
     }
+ 
 
     return(
         <AuthContext.Provider value={{
             handleLogin,
             handleInputEmail,
             handleInputPass,
-            email,
-            pass,
-            token
+            token,
+            isAuthenticated
         }}>
             {children}
         </AuthContext.Provider>

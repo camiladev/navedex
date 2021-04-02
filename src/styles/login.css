@@ -1,0 +1,64 @@
+.container-login{
+    width: 448px;
+    height: 408px;
+    border: 1px solid #212121;
+    padding: 10px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container-login > header {
+    width: 235.34px;
+    height: 60px;
+    background: url('../assets/logo.svg') no-repeat;
+}
+
+.container-login > header > h1 {
+    color: #212121;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.container-login > main > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.container-login > main > form label{
+    width: 100%;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    
+}
+
+.container-login > main > form input{
+    width: 384px;
+    height: 40px;
+    margin-bottom: 40px;
+    padding: 10px;
+    border-radius: 0;
+    border: 1px solid #212121;
+
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #9E9E9E;
+}
+
+.container-login > main > form button{
+    width: 384px;
+    height: 40px;
+    border-radius: 0;
+    border: 1px solid #212121;
+    background: #212121;
+    
+    font-size: 14px;
+    color: #ffff;
+    font-weight: 600;
+    line-height: 24px;
+}

@@ -40,7 +40,7 @@ function getLogin(value){
     })
     .then( async response => {
         var jsonData = await response.json();
-        console.log('token - ', jsonData.token)
+        console.log('Autenticado', jsonData.token)
 
         return jsonData.token;
     })
