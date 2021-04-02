@@ -3,9 +3,11 @@ import { FaTrash, FaPen } from "react-icons/fa";
 import '../../styles/listing.css'
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import ShowNaverModal from "../../components/ShowNaverModal";
 
 export default function Listing(){
     const [naver, setNaver] = useState([])
+    const [isModalOpen, setIsModalOpen] = useState(true)
 
     useEffect( () => {
         api.getUserAll().then( response => {
@@ -41,6 +43,8 @@ export default function Listing(){
                     } ) }
                 </main>
             </div>
+
+            { isModalOpen && <ShowNaverModal /> }
         </Layout>
     )
 }
