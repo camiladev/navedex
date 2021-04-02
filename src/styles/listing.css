@@ -1,0 +1,76 @@
+.container-listing{
+    width: 100%;
+    height: 600px;
+    padding: 0 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-listing > header{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 30px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-listing > header > button{
+    width: 176px;
+    height: 40px;
+    border-radius: 0;
+    border: 1px solid #212121;
+    background: #212121;
+    
+    font-size: 14px;
+    color: #ffff;
+    font-weight: 600;
+    line-height: 24px;
+
+    cursor: pointer;
+}
+
+.container-listing > main{
+    width: 100%;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 281px);
+    gap: 20px;
+}
+
+.container-listing > main .card{
+    width: 281px;
+    height: 420px;       
+}
+
+.container-listing > main .card img{
+    width: 100%;
+    height: 300px;
+    margin: 10px 0;       
+}
+
+.container-listing > main .card > div{
+    width: 100%;
+    font-size: 16px;
+    
+    display: flex;
+    flex-direction: column;      
+}
+.container-listing > main .card > div > strong{    
+    font-weight: 600;
+    line-height: 18px;      
+}
+
+.container-listing > main .card > div > span{
+    
+    font-weight: 400;
+    line-height: 30px;   
+}
+
+.container-listing > main .card > div > div svg{
+    margin-right: 10px;
+}

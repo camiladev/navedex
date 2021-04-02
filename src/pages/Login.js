@@ -2,10 +2,21 @@ import Layout from "../components/Layout";
 import '../styles/login.css'
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from 'react';
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Login(){
-    const { handleLogin, handleInputEmail, handleInputPass } = useContext(AuthContext)
+    const { onAuthenticated, handleInputEmail, handleInputPass } = useContext(AuthContext)
+    const history = useHistory();
+
+    async function onSubmit(event){
+        event.preventDefault();
+        
+        const request = await onAuthenticated();
+        console.log('res',request)
+        if(request){
+            return history.push('/navers')
+        }
+    }
     
     return(
         
@@ -15,7 +26,7 @@ export default function Login(){
                         
                     </header>
                     <main>
-                        <form>
+                        <form onSubmit={onSubmit}>
                             <label>
                                 E-mail
                             </label>
@@ -31,7 +42,7 @@ export default function Login(){
                                        placeholder= 'Senha'
                                        onChange={handleInputPass}
                                         />
-                            <button  className='button' onClick={handleLogin} >Entrar</button>
+                            <button  type='submit' >Entrar</button>
                         </form>
                     </main>
                     

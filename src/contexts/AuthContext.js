@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import Api from '../services/api'
-import  { Redirect } from 'react-router-dom'
 
 export const AuthContext = createContext({})
 
@@ -9,6 +8,7 @@ export function AuthProvider({children}){
     const [pass, setPass] = useState();
     const [token, setToken] = useState();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    
        
 
     function handleInputEmail(value){
@@ -21,19 +21,24 @@ export function AuthProvider({children}){
         setPass(senha)
 
     }
-    function handleLogin(){
-        const response = Api.getLogin({ email, pass}).then( token => {
-            setToken(token)
+    function onAuthenticated(){
+        const res = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhNDRhODVmLTNlNmItNDQ0My05ZjY2LTFkOTc0YzQ5ODkwMCIsImVtYWlsIjoidGVzdGluZy11c2VyQG5hdmUucnMiLCJpYXQiOjE2MTczODU2NjV9.pLOIeEZgsnTrlpUfbYbMt-IomjDldih3lzAch4LO3sw'
+        // const response = Api.getLogin({ email, pass}).then( token => {
+            setToken(res)
             setIsAuthenticated(true)           
 
-            return <Redirect to='/navers'  />
-        }).catch()
+        //     return response
+        // }).catch()
+
+        return res
     }
+
+   
  
 
     return(
         <AuthContext.Provider value={{
-            handleLogin,
+            onAuthenticated,
             handleInputEmail,
             handleInputPass,
             token,
