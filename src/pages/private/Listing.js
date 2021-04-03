@@ -38,8 +38,12 @@ export default function Listing(){
                                     <strong>{navers.name}</strong>
                                     <span>{navers.job_role}</span>
                                     <div>
-                                        <FaTrash />
-                                        <FaPen />
+                                        <Link to=''>
+                                            <FaTrash />
+                                        </Link>
+                                        <Link to='/editnaver'>
+                                            <FaPen />                                        
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
