@@ -35,13 +35,14 @@
 }
 .container-listing > main {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .container-listing .listing{
-      
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 281px);
     gap: 20px;
@@ -49,7 +50,9 @@
 
 .container-listing .listing .card{
     width: 281px;
-    height: 420px;       
+    height: 420px;   
+    
+    cursor: pointer;
 }
 
 .container-listing .listing .card img{

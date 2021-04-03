@@ -2,9 +2,12 @@ import Layout from "../../components/Layout";
 import '../../styles/form.css'
 import { IoIosArrowBack } from 'react-icons/io'
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { NaverContext } from "../../contexts/NaverContext";
 
 
 export default function CreateNaver(){
+    const { handleChangeCreate, submitCreate } = useContext(NaverContext);
 
     return(
         <Layout>
@@ -16,7 +19,7 @@ export default function CreateNaver(){
                     <h1>Adicionar Naver</h1>
                 </header>
                 <main>
-                    <form className='form' onSubmit="">
+                    <form className='form' onSubmit={submitCreate}>
                         <p>
                             <label htmlFor="name">Nome</label>
                             <input type="text" 

@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Listing from './pages/private/Listing'
 import Create from './pages/private/Create'
 import Edit from './pages/private/Edit'
+import { NaverProvider } from "./contexts/NaverContext";
 
 
 function PrivateRoute({ component: Component, ...rest}){
@@ -28,12 +29,15 @@ export default function Routes(){
 
     return(
         <BrowserRouter>
-            <Switch>
-                <Route exact path='/' component={Login} />
-                <PrivateRoute path='/navers' component={Listing} />
-                <PrivateRoute path='/createnaver' component={Create} />
-                <PrivateRoute path='/editnaver' component={Edit} />
-            </Switch>
+            <NaverProvider>
+                <Switch>
+                    <Route exact path='/' component={Login} />
+                    <PrivateRoute path='/navers' component={Listing} />
+                    <PrivateRoute path='/createnaver' component={Create} />
+                    <PrivateRoute path='/editnaver' component={Edit} />
+                </Switch>
+
+            </NaverProvider>
         </BrowserRouter>
     )
 }

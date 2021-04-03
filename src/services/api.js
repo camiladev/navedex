@@ -1,11 +1,11 @@
 
 const baseURL = 'https://navedex-api.herokuapp.com/v1'
 
-function getUserAll(){
+function getUserAll(token){
     return fetch(`${baseURL}/navers`, {
         method: 'GET',
         headers: {
-            'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhNDRhODVmLTNlNmItNDQ0My05ZjY2LTFkOTc0YzQ5ODkwMCIsImVtYWlsIjoidGVzdGluZy11c2VyQG5hdmUucnMiLCJpYXQiOjE2MTczMDI4NjZ9.UhDYFQoYTfrBVBaCOKKVKssEeC6NrJTD9isjaaCTTdA"
+            'Authorization': `Bearer ${token}` 
         }
     }).then( async (response) => {
         if(response.ok){
@@ -17,6 +17,98 @@ function getUserAll(){
         }
     }).catch( error => {
         console.log('Erro ao buscar dados dos usuários -> ', error)
+    })
+}
+
+function viewNaver({token, id}){
+    return fetch(`${baseURL}/navers/${id}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}` 
+        }
+    }).then( response => {
+        if(response.ok){
+            const naver = response.json()
+            return naver
+        }
+    })
+    .catch( error => {
+        console.log('Usuário não localizado -> ', error)
+    })
+}
+
+function createNaver({token}){
+    var raw = JSON.stringify({
+        "job_role": "Desenvolvedor",
+        "admission_date": "19/08/2018",
+        "birthdate": "12/04/1992",
+        "project": "Project Backend Test",
+        "name": "Christian Tavares",
+        "url": "test-path/image-test.png"
+      });
+
+    return fetch(`${baseURL}/navers`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` 
+        },
+        body: raw
+    }).then( response => {
+        if(response.ok){
+            const naver = response.json()
+            return naver
+        }
+    })
+    .catch( error => {
+        console.log('Usuário não cadastrado -> ', error)
+    })
+}
+
+function updateNaver({token, id}){
+    var raw = JSON.stringify({
+        "job_role": "Desenvolvedor",
+        "admission_date": "19/08/2018",
+        "birthdate": "12/04/1992",
+        "project": "Project Backend Test",
+        "name": "Christian Tavares",
+        "url": "test-path/image-test.png"
+      });
+
+    return fetch(`${baseURL}/navers/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` 
+        },
+        body: raw
+    }).then( response => {
+        if(response.ok){
+            const naver = response.json()
+            return naver
+        }
+    })
+    .catch( error => {
+        console.log('Usuário não atualizado -> ', error)
+    })
+}
+
+function deletNaver({token, id}){
+    
+    return fetch(`${baseURL}/navers/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${token}` 
+        },
+        
+    }).then( response => {
+        if(response.ok){
+            const naver = response.json()
+            return naver
+        }
+    })
+    .catch( error => {
+        console.log('Usuário não deletado -> ', error)
     })
 }
 
@@ -53,5 +145,9 @@ function getLogin(value){
 
 export default{
     getUserAll,
+    viewNaver,
+    createNaver,
+    updateNaver,
+    deletNaver,
     getLogin
 }

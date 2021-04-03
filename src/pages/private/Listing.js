@@ -1,23 +1,26 @@
 import Layout from "../../components/Layout";
 import { FaTrash, FaPen } from "react-icons/fa";
 import '../../styles/listing.css'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import api from "../../services/api";
 import ShowNaverModal from "../../components/ShowNaverModal";
 import { Link } from "react-router-dom";
+import { NaverContext } from "../../contexts/NaverContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Listing(){
     const [naver, setNaver] = useState([])
-    const [isModalOpen, setIsModalOpen] = useState(false)
+    const { token } = useContext(AuthContext);
+    const { isModalOpen, showNaver } = useContext(NaverContext);    
 
-    useEffect( () => {
-        api.getUserAll().then( response => {
-            console.log('Response user', response)
+    useEffect(() => {
+        api.getUserAll(token).then( response => {
+            console.log('Response res', response)
             setNaver(response)
         }).catch()
     } ,[])
 
-    
+      
 
     return(
         <Layout>
@@ -33,7 +36,7 @@ export default function Listing(){
                         {naver.length === 0 && (<div>Carregando Navers</div>)}
                         { naver.map( navers => {
                             return(
-                                <div className="card">
+                                <div className="card" onClick={() => showNaver(navers.id)}>
                                     <img src={navers.url} alt={navers.name} />
                                     <div>
                                         <strong>{navers.name}</strong>
