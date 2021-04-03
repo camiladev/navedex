@@ -7,7 +7,7 @@ import ShowNaverModal from "../../components/ShowNaverModal";
 
 export default function Listing(){
     const [naver, setNaver] = useState([])
-    const [isModalOpen, setIsModalOpen] = useState(true)
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     useEffect( () => {
         api.getUserAll().then( response => {

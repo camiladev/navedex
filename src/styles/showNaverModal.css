@@ -1,5 +1,5 @@
-.overlay{
-    background: rgba(242, 243, 245, 0.8);
+.modal{
+    background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -11,13 +11,89 @@
     align-items: center;
 }
 
-.container-modal{
-    background: var(--white);
-    width: 100%;
-    max-width: 400px;
-    padding: 2rem 3rem;
-    border-radius: 5px;
+.modal .container{
+    background: white;
+    max-width: 1006px;
+    height: 503px;
+
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
     text-align: center;
     position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.modal .container header{
+    /* width: 504px; */
+    height: 100%;
+}
+
+.modal .container main{
+    height: 100%;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.modal .container main > div:first-of-type{
+    height: 100%;    
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+
+.modal .container main > div h1{
+    line-height: 36px;
+    font-size: 24px;
+    font-weight: 600;
+    
+}
+
+.modal .container main > div strong{
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 600;    
+}
+
+.modal .container main > div p{
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 400;    
+
+    margin-bottom: 20px;
+}
+
+.modal .container main div:last-of-type svg{
+    margin-right: 15px;
+}
+
+.modal .container main .close{
+    position: absolute;
+    background: transparent;
+    color: #212121;
+    border: 0;
+    font-size: 30px;
+
+    top: 0.5rem;
+    right: 0.5rem;
+
+    cursor: pointer;
+}
+
+
+.modal .container main .delete,
+.modal .container main .edit{
+   
+    background: transparent;
+    color: #212121;
+    border: 0;
+    font-size: 18px;
+
+    cursor: pointer;
 }

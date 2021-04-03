@@ -6,27 +6,33 @@ import '../styles/showNaverModal.css'
 export default function ShowNaverModal(){
 
     return(
-        <div className="container-modal">
-            <header></header>
-            <main>
-                <button type='button' className='sair'><IoMdClose /></button>
-                <h1>Nome</h1>
-                <p>Cargo</p>
+        <div className="modal">
+            <div className="container">
+                <header></header>
+                <main>
+                    <button type='button' className='close'><IoMdClose /></button>
+                    <div>
+                        <h1>Camila Matos</h1>
+                        <p>Desenvolvedora Front-end</p>
 
-                <strong>Idade</strong>
-                <p>Lorem</p>
+                        <strong>Idade</strong>
+                        <p>Lorem</p>
 
-                <strong>Tempo de empresa</strong>
-                <p>Lorem</p>
+                        <strong>Tempo de empresa</strong>
+                        <p>Lorem</p>
 
-                <strong>Projetos que participou</strong>
-                <p>Lorem</p>
+                        <strong>Projetos que participou</strong>
+                        <p>Lorem</p>
 
-                <div>
-                    <FaTrash />
-                    <FaPen />
-                </div>
-            </main>
+                    </div>
+
+                    <div>
+                        <button type='button' className='delete'><FaTrash /></button>
+                        <button type='button' className='edit'><FaPen /></button>
+                    </div>
+                </main>
+
+            </div>
         </div>
     )
 }
