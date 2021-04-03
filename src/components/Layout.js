@@ -3,8 +3,8 @@ import { AuthContext } from '../contexts/AuthContext'
 import '../styles/layout.css'
 
 export default function Layout({children}){
-    // const { isAuthenticated } = useContext(AuthContext)
-    const isAuthenticated = true;
+    const { isAuthenticated } = useContext(AuthContext)
+    
     return(
         <div className="container">
             {isAuthenticated && (

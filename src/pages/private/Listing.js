@@ -29,27 +29,30 @@ export default function Listing(){
                     </Link>
                 </header>
                 <main>
-                    {naver.length === 0 && (<div>Carregando Navers</div>)}
-                    { naver.map( navers => {
-                        return(
-                            <div className="card">
-                                <img src={navers.url} alt={navers.name} />
-                                <div>
-                                    <strong>{navers.name}</strong>
-                                    <span>{navers.job_role}</span>
+                    <div className="listing">
+                        {naver.length === 0 && (<div>Carregando Navers</div>)}
+                        { naver.map( navers => {
+                            return(
+                                <div className="card">
+                                    <img src={navers.url} alt={navers.name} />
                                     <div>
-                                        <Link to=''>
-                                            <FaTrash />
-                                        </Link>
-                                        <Link to='/editnaver'>
-                                            <FaPen />                                        
-                                        </Link>
+                                        <strong>{navers.name}</strong>
+                                        <span>{navers.job_role}</span>
+                                        <div>
+                                            <Link to=''>
+                                                <FaTrash />
+                                            </Link>
+                                            <Link to='/editnaver'>
+                                                <FaPen />                                        
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                        )
-                    } ) }
+                            )
+                        } ) }
+
+                    </div>
                 </main>
             </div>
 
