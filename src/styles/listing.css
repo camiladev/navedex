@@ -19,7 +19,7 @@
     justify-content: space-between;
 }
 
-.container-listing > header > button{
+.container-listing > header button{
     width: 176px;
     height: 40px;
     border-radius: 0;

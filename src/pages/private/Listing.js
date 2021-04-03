@@ -4,6 +4,7 @@ import '../../styles/listing.css'
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import ShowNaverModal from "../../components/ShowNaverModal";
+import { Link } from "react-router-dom";
 
 export default function Listing(){
     const [naver, setNaver] = useState([])
@@ -16,12 +17,16 @@ export default function Listing(){
         }).catch()
     } ,[])
 
+    
+
     return(
         <Layout>
             <div className="container-listing">
                 <header>
                     <h1>Navers</h1>
-                    <button>Adicionar Naver</button>
+                    <Link to='/createnaver'>
+                        <button>Adicionar Naver</button>
+                    </Link>
                 </header>
                 <main>
                     {naver.length === 0 && (<div>Carregando Navers</div>)}

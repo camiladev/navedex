@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { AuthContext } from "./contexts/AuthContext";
 import Login from "./pages/Login";
 import Listing from './pages/private/Listing'
+import Create from './pages/private/Create'
 
 
 function PrivateRoute({ component: Component, ...rest}){
@@ -29,7 +30,7 @@ export default function Routes(){
             <Switch>
                 <Route exact path='/' component={Login} />
                 <PrivateRoute path='/navers' component={Listing} />
-
+                <PrivateRoute path='/createnaver' component={Create} />
             </Switch>
         </BrowserRouter>
     )
