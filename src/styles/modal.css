@@ -1,0 +1,91 @@
+.container-modal{
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-modal .modal{
+    background: white;
+    max-width: 592px;
+    height: 160px;
+    padding: 20px;
+
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    position: relative;
+}
+
+.container-modal .modal .close{
+    width: 25px;
+    background: transparent;
+    color: #212121;
+    border: 0;
+    font-size: 15px;
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-modal .modal > div > h1{
+    height: 36px;
+
+    line-height: 36px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #212121;
+
+    display: flex;
+    align-items: center;
+}
+
+.container-modal .modal > div > p{
+    height: 36px;
+
+    line-height: 36px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #212121;
+
+    display: flex;
+    align-items: center;
+}
+.container-modal .modal .button{
+    display: flex;
+    align-items: flex-end;
+    
+}
+.container-modal .modal .button .cancelar,
+.container-modal .modal .button .excluir{
+    width: 176px;
+    height: 40px;   
+    
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-modal .modal .button .cancelar{
+    background: #FFFFFF;
+    color: #212121;
+    border: 1px solid #212121;
+    margin-right: 24px;
+}
+
+.container-modal .modal .button .excluir{
+    background: #212121;
+    color: #FFFFFF;
+}
