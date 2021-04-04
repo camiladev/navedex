@@ -6,7 +6,7 @@ import { NaverContext } from "../contexts/NaverContext";
 import '../styles/showNaverModal.css'
 
 export default function ShowNaverModal(){
-    const { closeNaver, naverShow } = useContext(NaverContext);
+    const { closeNaver, naverShow, deletNaver } = useContext(NaverContext);
 
     return(
         <div className="modal">
@@ -32,7 +32,7 @@ export default function ShowNaverModal(){
                     </div>
 
                     <div>
-                        <button type='button' className='delete'><FaTrash /></button>
+                        <button type='button' className='delete' onClick={() => deletNaver(naverShow.id)}><FaTrash /></button>
                         <button type='button' className='edit'><FaPen /></button>
                     </div>
                 </main>

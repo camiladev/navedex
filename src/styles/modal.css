@@ -13,13 +13,24 @@
 
 .container-modal .modal{
     background: white;
-    max-width: 592px;
+    width: 592px;
     height: 160px;
     padding: 20px;
 
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
-    text-align: center;
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+.container-modal .modal > div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-around;
 }
 
 .container-modal .modal .close{
@@ -27,7 +38,14 @@
     background: transparent;
     color: #212121;
     border: 0;
-    font-size: 15px;
+    font-size: 30px;
+    cursor: pointer;
+
+    position: absolute;
+    
+    top: 0.5rem;
+    right: 1rem;
+
     cursor: pointer;
     
     display: flex;

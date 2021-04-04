@@ -1,22 +1,32 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { NaverContext } from "../contexts/NaverContext";
+import { IoMdClose } from 'react-icons/io';
 import '../styles/modal.css';
 
 export default function Modal(){
+    const { closeNaver, containerMessage, confirmDelet } = useContext(NaverContext)
+    console.log('props ', containerMessage.type)
+    const tipo = containerMessage.type
 
     return(
         <div className="container-modal">
             <div className="modal">
-                <Link to='/navers'>
-                    <button className="close">X</button>
-                </Link>
+                {tipo === 'message' && 
+                    <button className="close" onClick={closeNaver}><IoMdClose /></button>
+                
+                }
+        
                 <div>
-                    <h1>Naver Criado</h1>
-                    <p>Naver criado com sucesso!</p>
+                    <h1>{containerMessage.title}</h1>
+                    <p>{containerMessage.text}</p>
                 </div>
-                <div className="button">
-                    <button type='button' className='cancelar' >Cancelar</button>
-                    <button type='button' className='excluir' >Excluir</button>
-                </div>
+                { tipo === 'delet' && 
+                    <div className="button">
+                        <button type='button' className='cancelar' onClick={closeNaver} >Cancelar</button>
+                        <button type='button' className='excluir' onClick={confirmDelet} >Excluir</button>
+                    </div>
+                
+                }
             </div>
         </div>
     )

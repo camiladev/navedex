@@ -11,11 +11,10 @@ import { AuthContext } from "../../contexts/AuthContext";
 export default function Listing(){
     const [naver, setNaver] = useState([])
     const { token } = useContext(AuthContext);
-    const { isModalOpen, showNaver } = useContext(NaverContext);    
+    const { isModalOpen, showNaver, deletNaver } = useContext(NaverContext);    
 
     useEffect(() => {
         api.getUserAll(token).then( response => {
-            console.log('Response res', response)
             setNaver(response)
         }).catch()
     } ,[])
@@ -36,18 +35,19 @@ export default function Listing(){
                         {naver.length === 0 && (<div>Carregando Navers</div>)}
                         { naver.map( navers => {
                             return(
-                                <div className="card" onClick={() => showNaver(navers.id)}>
-                                    <img src={navers.url} alt={navers.name} />
+                                <div className="card" >
+                                    <img src={navers.url} alt={navers.name} onClick={() => showNaver(navers.id)} />
                                     <div>
                                         <strong>{navers.name}</strong>
                                         <span>{navers.job_role}</span>
                                         <div>
-                                            <Link to=''>
+                                            <button onClick={() => deletNaver(navers.id)}>
                                                 <FaTrash />
-                                            </Link>
-                                            <Link to='/editnaver'>
+                                            </button>
+                                            <button>
                                                 <FaPen />                                        
-                                            </Link>
+                                            </button>
+                                            
                                         </div>
                                     </div>
                                 </div>

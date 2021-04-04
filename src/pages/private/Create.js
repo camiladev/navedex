@@ -7,7 +7,7 @@ import { NaverContext } from "../../contexts/NaverContext";
 
 
 export default function CreateNaver(){
-    const { handleChangeCreate, submitCreate } = useContext(NaverContext);
+    const { handleChangeCreate, submitCreate, dadosNaver } = useContext(NaverContext);
 
     return(
         <Layout>
@@ -25,8 +25,9 @@ export default function CreateNaver(){
                             <input type="text" 
                                 name='name' 
                                 placeholder='Nome' 
-                                value=''
-                                onChange='' />
+                                required
+                                value={dadosNaver.name}
+                                onChange={handleChangeCreate} />
 
                         </p>
 
@@ -36,35 +37,37 @@ export default function CreateNaver(){
                             <input type="text" 
                                 name='cargo' 
                                 placeholder='Cargo' 
-                                value=''
-                                onChange='' />
+                                required
+                                value={dadosNaver.cargo}
+                                onChange={handleChangeCreate} />
                         </p>
                         <p>
 
                             <label htmlFor="idade">Idade</label>
-                            <input type="text" 
-                                name='idade' 
-                                placeholder='Idade' 
-                                value=''
-                                onChange='' />
+                            <input type="date" 
+                                name='idade'     
+                                required      
+                                value={dadosNaver.idade}
+                                onChange={handleChangeCreate} />
                         
                         </p>
                         <p>
                             <label htmlFor="tempEmp">Tempo de empresa</label>
-                            <input type="text" 
+                            <input type="date" 
                                 name='tempEmp' 
-                                placeholder='Tempo de empresa' 
-                                value=''
-                                onChange='' />
+                                required
+                                value={dadosNaver.tempEmp}
+                                onChange={handleChangeCreate} />
 
                         </p>
                         <p>
                             <label htmlFor="project">Projetos que participou</label>
                             <input type="text" 
                                 name='project' 
+                                required
                                 placeholder='Projetos que participou' 
-                                value=''
-                                onChange='' />
+                                value={dadosNaver.project}
+                                onChange={handleChangeCreate} />
 
                         </p>
 
@@ -72,9 +75,10 @@ export default function CreateNaver(){
                             <label htmlFor="url_foto">URL da foto do Naver</label>
                             <input type="text" 
                                 name='url_foto' 
+                                required
                                 placeholder='URL da foto do Naver' 
-                                value=''
-                                onChange='' />
+                                value={dadosNaver.url_foto}
+                                onChange={handleChangeCreate} />
 
                         </p>
                         
