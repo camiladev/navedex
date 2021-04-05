@@ -77,8 +77,11 @@
     align-items: center;
 }
 .container-modal .modal .button{
+    width: 100%;
     display: flex;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
     
 }
 .container-modal .modal .button .cancelar,

@@ -79,6 +79,15 @@
     line-height: 30px;   
 }
 
+.container-listing .listing .card > div > div button{
+    background: transparent;
+    color: #212121;
+    border: 0;
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
 .container-listing .listing .card > div > div svg{
     margin-right: 10px;
 }

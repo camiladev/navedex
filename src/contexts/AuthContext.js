@@ -33,6 +33,11 @@ export function AuthProvider({children}){
         return res
     }
 
+    function logOut(){
+        setToken('')
+        setIsAuthenticated(false) 
+    }
+
    
  
 
@@ -41,6 +46,7 @@ export function AuthProvider({children}){
             onAuthenticated,
             handleInputEmail,
             handleInputPass,
+            logOut,
             token,
             isAuthenticated
         }}>
