@@ -53,6 +53,7 @@ export function NaverProvider({ children }){
                 type: 'message'
             })
             setIsMessageOpen(true)
+            history.push('/navers')
             setDadosNaver({})
 
         })

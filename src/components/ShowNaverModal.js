@@ -7,7 +7,7 @@ import '../styles/showNaverModal.css'
 import FormatDate from '../components/FormatDate'
 
 export default function ShowNaverModal(){
-    const { closeNaver, naverShow, deletNaver } = useContext(NaverContext);
+    const { closeNaver, naverShow, deletNaver, editNaver } = useContext(NaverContext);
     const idade = FormatDate(naverShow.birthdate)
     const temp = FormatDate(naverShow.admission_date)
 
@@ -36,7 +36,7 @@ export default function ShowNaverModal(){
 
                     <div>
                         <button type='button' className='delete' onClick={() => deletNaver(naverShow.id)}><FaTrash /></button>
-                        <button type='button' className='edit'><FaPen /></button>
+                        <button type='button' className='edit' onClick={() => editNaver(naverShow)}><FaPen /></button>
                     </div>
                 </main>
 
