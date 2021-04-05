@@ -36,11 +36,11 @@ function viewNaver({token, id}){
 }
 
 function createNaver({token, dadosNaver}){
-    console.log(dadosNaver.idade,' - ', token)
     var idade = dadosNaver.idade
     idade = idade.split('-').reverse().join('/')
     var admission = dadosNaver.tempEmp
     admission = admission.split('-').reverse().join('/')
+
     var raw = JSON.stringify({
         "job_role": dadosNaver.cargo,
         "admission_date": admission,
@@ -69,17 +69,22 @@ function createNaver({token, dadosNaver}){
     })
 }
 
-function updateNaver({token, id}){
+function updateNaver({token, dadosNaver}){
+    var idade = dadosNaver.idade
+    idade = idade.split('-').reverse().join('/')
+    var admission = dadosNaver.tempEmp
+    admission = admission.split('-').reverse().join('/')
+
     var raw = JSON.stringify({
-        "job_role": "Desenvolvedor",
-        "admission_date": "19/08/2018",
-        "birthdate": "12/04/1992",
-        "project": "Project Backend Test",
-        "name": "Christian Tavares",
-        "url": "test-path/image-test.png"
+        "job_role": dadosNaver.cargo,
+        "admission_date": admission,
+        "birthdate": idade,
+        "project": dadosNaver.project,
+        "name": dadosNaver.name,
+        "url": dadosNaver.url_foto
       });
 
-    return fetch(`${baseURL}/navers/${id}`, {
+    return fetch(`${baseURL}/navers/${dadosNaver.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

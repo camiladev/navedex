@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import api from "../services/api";
 import Modal from '../components/Modal'
 import { AuthContext } from "./AuthContext";
+import { useHistory } from "react-router";
 
 export const NaverContext = createContext({})
 
@@ -13,6 +14,8 @@ export function NaverProvider({ children }){
 
     const [ isMessageOpen, setIsMessageOpen] = useState(false)
     const [ containerMessage, setContainerMessage] = useState()
+
+    const history = useHistory();
 
     function showNaver(value){
         const response = api.viewNaver({ token: token, id: value})
@@ -97,6 +100,45 @@ export function NaverProvider({ children }){
         })
     }
 
+    function editNaver(values){
+        setDadosNaver({
+            id: values.id,
+            name: values.name,
+            cargo: values.job_role,
+            idade: values.birthdate,
+            tempEmp: values.admission_date,
+            project: values.project,
+            url_foto: values.url
+
+        })
+        history.push('/editnaver')
+    }
+
+    function confirmEdit(event){
+        event.preventDefault();
+        console.log('eviando...', dadosNaver)
+        const response = api.updateNaver({token: token, dadosNaver: dadosNaver})
+        .then( res => {
+            setContainerMessage({
+                title: 'Naver Editado',
+                text: 'Naver editado com sucesso!',
+                type: 'message'
+            })
+            setIsMessageOpen(true)
+            history.push('/navers')
+            setDadosNaver({})
+
+        })
+        .catch( error => {
+            setContainerMessage({
+                title: 'Erro ao editar naver',
+                text: 'Naver não foi editado!!',
+                type: 'message'
+            })
+            setIsMessageOpen(true)
+        })
+    }
+
 
     return(
         <NaverContext.Provider value={{
@@ -109,7 +151,9 @@ export function NaverProvider({ children }){
             handleChangeCreate,
             submitCreate,
             deletNaver,
-            confirmDelet
+            confirmDelet,
+            editNaver,
+            confirmEdit
 
         }}>
             { children }

@@ -4,9 +4,12 @@ import { FaTrash, FaPen } from "react-icons/fa";
 import { IoMdClose } from 'react-icons/io';
 import { NaverContext } from "../contexts/NaverContext";
 import '../styles/showNaverModal.css'
+import FormatDate from '../components/FormatDate'
 
 export default function ShowNaverModal(){
     const { closeNaver, naverShow, deletNaver } = useContext(NaverContext);
+    const idade = FormatDate(naverShow.birthdate)
+    const temp = FormatDate(naverShow.admission_date)
 
     return(
         <div className="modal">

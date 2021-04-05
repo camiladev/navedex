@@ -11,7 +11,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 export default function Listing(){
     const [naver, setNaver] = useState([])
     const { token } = useContext(AuthContext);
-    const { isModalOpen, showNaver, deletNaver } = useContext(NaverContext);    
+    const { isModalOpen, showNaver, deletNaver, editNaver } = useContext(NaverContext);    
 
     useEffect(() => {
         api.getUserAll(token).then( response => {
@@ -44,7 +44,7 @@ export default function Listing(){
                                             <button onClick={() => deletNaver(navers.id)}>
                                                 <FaTrash />
                                             </button>
-                                            <button>
+                                            <button onClick={ () => editNaver(navers) }>
                                                 <FaPen />                                        
                                             </button>
                                             
