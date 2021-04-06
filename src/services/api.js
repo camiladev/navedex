@@ -33,6 +33,7 @@ function viewNaver({token, id}){
     })
     .catch( error => {
         console.log('Usuário não localizado -> ', error)
+        alert('Usuário não localizado!')
         return error
     })
 }
@@ -68,6 +69,7 @@ function createNaver({token, dadosNaver}){
     })
     .catch( error => {
         console.log('Usuário não cadastrado -> ', error)
+        alert('Usuário não cadastrado!')
         return error
     })
 }
@@ -102,6 +104,7 @@ function updateNaver({token, dadosNaver}){
     })
     .catch( error => {
         console.log('Usuário não atualizado -> ', error)
+        alert('Usuário não atualizado!')
         return error
     })
 }
@@ -122,6 +125,8 @@ function deletNaver({token, id}){
     })
     .catch( error => {
         console.log('Usuário não deletado -> ', error)
+        alert('Usuário não deletado!')
+
         return error
     })
 }
@@ -151,6 +156,7 @@ function getLogin(value){
     })
     .catch( error => {
         console.log('Erro: ',error)
+        alert('Acesso não autorizado!')
         return error
     })
 }
