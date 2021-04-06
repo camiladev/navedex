@@ -1,22 +1,26 @@
 import Layout from "../components/Layout";
 import '../styles/login.css'
 import { AuthContext } from "../contexts/AuthContext";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 
 export default function Login(){
-    const { onAuthenticated, handleInputEmail, handleInputPass } = useContext(AuthContext)
+    const { onAuthenticated, handleInputEmail, handleInputPass, isAuthenticated } = useContext(AuthContext)
     const history = useHistory();
 
     async function onSubmit(event){
         event.preventDefault();
         
-        const request = await onAuthenticated();
-        console.log('res',request)
-        if(request){
+        const request = await onAuthenticated();       
+        
+    }
+
+    useEffect(() => {
+        if(isAuthenticated){
+            
             return history.push('/navers')
         }
-    }
+    },[isAuthenticated])
     
     return(
         

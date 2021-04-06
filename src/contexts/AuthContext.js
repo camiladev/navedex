@@ -22,15 +22,16 @@ export function AuthProvider({children}){
 
     }
     function onAuthenticated(){
-        const res = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhNDRhODVmLTNlNmItNDQ0My05ZjY2LTFkOTc0YzQ5ODkwMCIsImVtYWlsIjoidGVzdGluZy11c2VyQG5hdmUucnMiLCJpYXQiOjE2MTczODU2NjV9.pLOIeEZgsnTrlpUfbYbMt-IomjDldih3lzAch4LO3sw'
-        // const response = Api.getLogin({ email, pass}).then( token => {
-            setToken(res)
-            setIsAuthenticated(true)           
+        // const res = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhNDRhODVmLTNlNmItNDQ0My05ZjY2LTFkOTc0YzQ5ODkwMCIsImVtYWlsIjoidGVzdGluZy11c2VyQG5hdmUucnMiLCJpYXQiOjE2MTczODU2NjV9.pLOIeEZgsnTrlpUfbYbMt-IomjDldih3lzAch4LO3sw'
+        const response = Api.getLogin({ email, pass}).then( token => {
+                setToken(token)
+                setIsAuthenticated(true)          
+            
+            return response
+        }).catch( error => {
+            alert('E-mail e/ou senha incorreto !! ')
+        })
 
-        //     return response
-        // }).catch()
-
-        return res
     }
 
     function logOut(){

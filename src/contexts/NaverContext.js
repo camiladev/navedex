@@ -44,14 +44,12 @@ export function NaverProvider({ children }){
             ...dadosNaver,
             [event.target.name]:event.target.value
         })
-        
-        console.log('Dados ',event.target.name,' . ', event.target.value )
 
     }
 
     function submitCreate(event){
         event.preventDefault();
-        console.log('eviando...', dadosNaver)
+        
         const response = api.createNaver({token: token, dadosNaver: dadosNaver})
         .then( res => {
             setContainerMessage({
@@ -87,7 +85,7 @@ export function NaverProvider({ children }){
     function confirmDelet(){
         setIsMessageOpen(false)
         const id = dadosNaver.id
-        console.log(id)
+        
         const response = api.deletNaver({token: token, id: id})
         .then( res => {
             setContainerMessage({
@@ -124,7 +122,7 @@ export function NaverProvider({ children }){
 
     function confirmEdit(event){
         event.preventDefault();
-        console.log('eviando...', dadosNaver)
+        
         const response = api.updateNaver({token: token, dadosNaver: dadosNaver})
         .then( res => {
             setContainerMessage({

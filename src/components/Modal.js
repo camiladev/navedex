@@ -5,7 +5,7 @@ import '../styles/modal.css';
 
 export default function Modal(){
     const { closeNaver, containerMessage, confirmDelet } = useContext(NaverContext)
-    console.log('props ', containerMessage.type)
+    
     const tipo = containerMessage.type
 
     return(

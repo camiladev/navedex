@@ -15,6 +15,7 @@ function getUserAll(token){
         }
     }).catch( error => {
         console.log('Erro ao buscar dados dos usuários -> ', error)
+        return error
     })
 }
 
@@ -32,6 +33,7 @@ function viewNaver({token, id}){
     })
     .catch( error => {
         console.log('Usuário não localizado -> ', error)
+        return error
     })
 }
 
@@ -66,6 +68,7 @@ function createNaver({token, dadosNaver}){
     })
     .catch( error => {
         console.log('Usuário não cadastrado -> ', error)
+        return error
     })
 }
 
@@ -99,6 +102,7 @@ function updateNaver({token, dadosNaver}){
     })
     .catch( error => {
         console.log('Usuário não atualizado -> ', error)
+        return error
     })
 }
 
@@ -118,15 +122,13 @@ function deletNaver({token, id}){
     })
     .catch( error => {
         console.log('Usuário não deletado -> ', error)
+        return error
     })
 }
 
 
 
 function getLogin(value){
-    
-    // "email": "testing-user@nave.rs",
-    // "password": "nave1234"
   
     return fetch(`${baseURL}/users/login`, {
        
@@ -140,12 +142,16 @@ function getLogin(value){
         })
     })
     .then( async response => {
-        var jsonData = await response.json();
+        if(response.ok){
 
-        return jsonData.token;
+            var jsonData = await response.json();
+    
+            return jsonData.token;
+        }
     })
     .catch( error => {
         console.log('Erro: ',error)
+        return error
     })
 }
 
