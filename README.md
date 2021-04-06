@@ -3,6 +3,37 @@
 Projeto proposto para a realização do Desafio Técnico da empresa Nave.rs
 
 **Telas**
+<table>
+  <tr>
+    <td>
+    <img src="https://user-images.githubusercontent.com/63053569/113755550-d2e80e80-96e6-11eb-826b-014477dc24d8.png" width="500">
+    </td>
+    <td>
+    <img src="https://user-images.githubusercontent.com/63053569/113755573-da0f1c80-96e6-11eb-88db-17eff7abd68b.png" width="500">
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+    <img src="https://user-images.githubusercontent.com/63053569/113755596-e2675780-96e6-11eb-93a8-605f9e43041b.png" width="500">
+    </td>
+    <td>
+    <img src="https://user-images.githubusercontent.com/63053569/113755621-ec895600-96e6-11eb-80e0-e7af7c844beb.png" width="500">
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+    <img src="https://user-images.githubusercontent.com/63053569/113755644-f612be00-96e6-11eb-84ae-47365d989e08.png" width="500">
+    </td>
+    <td>
+    <img src="https://user-images.githubusercontent.com/63053569/113755677-fdd26280-96e6-11eb-8c51-edbab0d27f0e.png" width="500">
+    </td>
+  </tr>
+  
+</table>
+
+
 
 **Vídeos do sistema em funcionamento**
 
