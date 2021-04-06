@@ -9,14 +9,12 @@ import { NaverContext } from "../../contexts/NaverContext";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Listing(){
-    const [naver, setNaver] = useState([])
+    // const [ naver, setNaver ] = useState([])
     const { token } = useContext(AuthContext);
-    const { isModalOpen, showNaver, deletNaver, editNaver } = useContext(NaverContext);    
+    const { isModalOpen, showNaver, deletNaver, editNaver, atualizaLista, naver } = useContext(NaverContext);    
 
     useEffect(() => {
-        api.getUserAll(token).then( response => {
-            setNaver(response)
-        }).catch()
+        atualizaLista()
     } ,[])
 
       

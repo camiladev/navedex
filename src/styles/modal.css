@@ -110,3 +110,15 @@
     background: #212121;
     color: #FFFFFF;
 }
+
+@media(width: 360px){
+    .container-modal .modal{
+        width: 100%;
+        padding: 10px;    
+        
+    }
+
+    .container-modal .modal > div > p{        
+        font-size: 14px;
+    }
+}

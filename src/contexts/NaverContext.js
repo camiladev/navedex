@@ -10,6 +10,7 @@ export function NaverProvider({ children }){
     const [naverShow, setNaverShow] = useState([])
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [dadosNaver, setDadosNaver] = useState([])
+    const [ naver, setNaver ] = useState([])
     const { token } = useContext(AuthContext)
 
     const [ isMessageOpen, setIsMessageOpen] = useState(false)
@@ -17,17 +18,15 @@ export function NaverProvider({ children }){
 
     const history = useHistory();
 
-    const dadosIniciais = {
-        name: '',
-        cargo: '',
-        idade: '',
-        tempEmp: '',
-        project: '',
-        url_foto: ''
-    }
-
     function backNav(){
         setDadosNaver({})
+    }
+
+    function atualizaLista(){        
+            api.getUserAll(token).then( response => {
+                setNaver(response)
+            }).catch()        
+    
     }
 
 
@@ -51,7 +50,7 @@ export function NaverProvider({ children }){
     function closeNaver(){        
         setIsModalOpen(false)
         setIsMessageOpen(false)
-        setDadosNaver(dadosIniciais)
+        setDadosNaver({})
     }
 
     function handleChangeCreate(event){
@@ -74,7 +73,7 @@ export function NaverProvider({ children }){
             })
             setIsMessageOpen(true)
             history.push('/navers')
-            setDadosNaver(dadosIniciais)
+            setDadosNaver({})
 
         })
         .catch( error => {
@@ -109,6 +108,7 @@ export function NaverProvider({ children }){
                 type: 'message'
             })
             setIsMessageOpen(true)
+            atualizaLista()
 
         })
         .catch( error => {
@@ -167,6 +167,7 @@ export function NaverProvider({ children }){
             naverShow,
             dadosNaver,
             containerMessage,
+            naver,
             closeNaver,
             showNaver,
             handleChangeCreate,
@@ -175,7 +176,8 @@ export function NaverProvider({ children }){
             confirmDelet,
             editNaver,
             confirmEdit,
-            backNav
+            backNav,
+            atualizaLista
 
         }}>
             { children }
