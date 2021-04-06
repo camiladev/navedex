@@ -85,3 +85,17 @@
     align-items: center;
     justify-content: center;
 }
+
+@media(width: 360px){
+    .container-form{
+        width: 100%;
+        
+    }
+
+    .container-form .form {
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+    
+    }
+}

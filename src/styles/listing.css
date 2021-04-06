@@ -91,3 +91,15 @@
 .container-listing .listing .card > div > div svg{
     margin-right: 10px;
 }
+
+@media(width: 360px){
+    .container-listing{
+        height: 100%;
+        padding: 0 10px;
+    
+    }
+    .container-listing .listing{
+        grid-template-columns: 100%;
+        
+    }
+}

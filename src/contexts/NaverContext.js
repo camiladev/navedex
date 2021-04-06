@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import api from "../services/api";
 import Modal from '../components/Modal'
 import { AuthContext } from "./AuthContext";
@@ -17,7 +17,22 @@ export function NaverProvider({ children }){
 
     const history = useHistory();
 
+    const dadosIniciais = {
+        name: '',
+        cargo: '',
+        idade: '',
+        tempEmp: '',
+        project: '',
+        url_foto: ''
+    }
+
+    function backNav(){
+        setDadosNaver({})
+    }
+
+
     function showNaver(value){
+        
         const response = api.viewNaver({ token: token, id: value})
         .then( res => {
             setNaverShow(res)
@@ -36,7 +51,7 @@ export function NaverProvider({ children }){
     function closeNaver(){        
         setIsModalOpen(false)
         setIsMessageOpen(false)
-        setDadosNaver({})
+        setDadosNaver(dadosIniciais)
     }
 
     function handleChangeCreate(event){
@@ -59,7 +74,7 @@ export function NaverProvider({ children }){
             })
             setIsMessageOpen(true)
             history.push('/navers')
-            setDadosNaver({})
+            setDadosNaver(dadosIniciais)
 
         })
         .catch( error => {
@@ -159,7 +174,8 @@ export function NaverProvider({ children }){
             deletNaver,
             confirmDelet,
             editNaver,
-            confirmEdit
+            confirmEdit,
+            backNav
 
         }}>
             { children }

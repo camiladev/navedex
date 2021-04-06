@@ -7,7 +7,7 @@ import { NaverContext } from "../../contexts/NaverContext";
 
 
 export default function EditNaver(){
-    const {dadosNaver , confirmEdit, handleChangeCreate} = useContext(NaverContext)
+    const {dadosNaver , confirmEdit, handleChangeCreate, backNav} = useContext(NaverContext)
     const idade = (dadosNaver.idade).split('T')  
     const temp = (dadosNaver.tempEmp).split('T')  
 
@@ -16,7 +16,7 @@ export default function EditNaver(){
             <div className="container-form">
                 <header>
                     <Link to='/navers'>
-                        <button className='back'><IoIosArrowBack /></button>                    
+                        <button className='back' onClick={backNav}><IoIosArrowBack /></button>                    
                     </Link>
                     <h1>Editar Naver</h1>
                 </header>
