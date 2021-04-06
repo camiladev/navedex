@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Navedex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projeto proposto para a realização do Desafio Técnico da empresa Nave.rs
 
-## Available Scripts
+**Telas**
 
-In the project directory, you can run:
+### :page_with_curl: Informações sobre o Projeto
 
-### `yarn start`
+O Navedex é um sistema web onde é possivel visualizar informações dos funcionários, tais como: nome, cargo, idade, cargo, tempo de empresa e projetos que participou.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+O sistema permite que apenas pessoas autorizadas visualizem tais informações, e também permite que ela adicione novo membro, edite e delete membros da listagem.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### :clipboard: Resolução
 
-### `yarn test`
+**Login**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O sistema possui um fluxo de autenticação, onde o usuário só pode ter acesso as telas internas do sistema informando as credenciais criadas previamente.
 
-### `yarn build`
+Para realizar a atenticação utilizei o Context API, um hook do React que permite que mais de um componente tenha acesso aos dados passados por ele. E nele armazenei o token passado pela API e que precisei utilizadas no header das requisições futuras.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+E para o controle de rotas utilizei o React-Router-Dom, criando uma rota privada que só permite acesso a elas quando recebe a informação do Context de que o usuário está autenticado.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Visualização**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A listagem dos funcionários é a tela principal do sistema, assim que ela carrega é realizado uma consulta a API. A chamada da função que realiza a consulta inicial é realizada com a utilização do hook useEffect, ele não recebe nenhum parametro fazendo que assim que a tela for carregada ele seja executado.
 
-### `yarn eject`
+Outra forma de visualização também foi aplicada, é possivel ver os dados de um único membro clicando em sua foto. O sistema realizada a chamada para a API passando o id do membro selecionado e torna os dados cadastrados do mesmo.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Para a visualização individual criei uma funcionalidade que calcula a idade e o tempo de empresa do membro com base na data informada, para que essas informações sejam mostradas de forma agradavel ao usuário.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Criação/Edição/Deletar**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para realizar o cadastro de um novo membro, foi criado um formalário com campos obrigatórios, onde o usuário deve preencher todos os campos, e a inclução da foto do membro se dá traves da url online da foto, no caso é possivel pegar a foto ja cadastrada no github, por exemplo.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Já a edição, possui o mesmo formulário porem ele ja inicia com os dados dos membro solicitado, assim o usuário edita o que precisa e salva os dados atualizados na API.
 
-## Learn More
+Para deletar um membro é possivel fazer direto na tela de listagem, ou na visualização individual do membro.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Resposividade**
 
-### Code Splitting
+O sistema foi ajustado para dois tipos de tela, para desktop e para celulares, ajustando o layout para que fique de facil visualização para ambos os usuários.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+### :running: Dificuldades
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+O meu maior desafio foi iniciar as chamadas a API, pois precisava retornar um token que autoriza o usuário a realizar as requisições. E como foi a primeira vez que precisei realizar chamadas utilizando o token, acabei demorando um pouco aprendendo como funcionava e como utilizar.
 
-### Making a Progressive Web App
+Mas não atrapalhou no desenvolvimento da aplicação, pois consegui entender e utilizar sem problemas durante as requisições.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### :hammer_and_wrench: Tecnologias usadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Para concluir o desafio utilizei:
+- React.js
+- fetch: para realizar as chamadas http
+- API: fornecida pela empresa
 
-### Deployment
+### :computer: Execução
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Para você rodar o projeto localmente é necessário que realize o clone do projeto e executar o comando:
 
-### `yarn build` fails to minify
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+E para executar a aplicação de o seguinte comando:
+
+```bash
+npm start
+```
+
+Agora no navegar acesse [http://localhost:3000/](http://localhost:3000/)
+
+
+

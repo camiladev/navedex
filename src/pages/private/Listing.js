@@ -2,15 +2,11 @@ import Layout from "../../components/Layout";
 import { FaTrash, FaPen } from "react-icons/fa";
 import '../../styles/listing.css'
 import { useContext, useEffect, useState } from "react";
-import api from "../../services/api";
 import ShowNaverModal from "../../components/ShowNaverModal";
 import { Link } from "react-router-dom";
 import { NaverContext } from "../../contexts/NaverContext";
-import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Listing(){
-    // const [ naver, setNaver ] = useState([])
-    const { token } = useContext(AuthContext);
     const { isModalOpen, showNaver, deletNaver, editNaver, atualizaLista, naver } = useContext(NaverContext);    
 
     useEffect(() => {
