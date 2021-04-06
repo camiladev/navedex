@@ -23,7 +23,14 @@ export function NaverProvider({ children }){
             setNaverShow(res)
             setIsModalOpen(true)
         })
-        .catch()
+        .catch( error => {
+            setContainerMessage({
+                title: 'Naver não localizado',
+                text: 'Não foi possivel localizar naver!',
+                type: 'message'
+            })
+            setIsMessageOpen(true)
+        })
     }
 
     function closeNaver(){        
@@ -121,8 +128,8 @@ export function NaverProvider({ children }){
         const response = api.updateNaver({token: token, dadosNaver: dadosNaver})
         .then( res => {
             setContainerMessage({
-                title: 'Naver Editado',
-                text: 'Naver editado com sucesso!',
+                title: 'Naver Atualizado',
+                text: 'Naver atualizado com sucesso!',
                 type: 'message'
             })
             setIsMessageOpen(true)

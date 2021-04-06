@@ -4,12 +4,12 @@ import { FaTrash, FaPen } from "react-icons/fa";
 import { IoMdClose } from 'react-icons/io';
 import { NaverContext } from "../contexts/NaverContext";
 import '../styles/showNaverModal.css'
-import FormatDate from '../components/FormatDate'
+import CalculaTemp from '../components/CalculaTemp'
 
 export default function ShowNaverModal(){
     const { closeNaver, naverShow, deletNaver, editNaver } = useContext(NaverContext);
-    const idade = FormatDate(naverShow.birthdate)
-    const temp = FormatDate(naverShow.admission_date)
+    const idade = CalculaTemp(naverShow.birthdate)
+    const temp = CalculaTemp(naverShow.admission_date)
 
     return(
         <div className="modal">
@@ -24,10 +24,10 @@ export default function ShowNaverModal(){
                         <p>{naverShow.job_role}</p>
 
                         <strong>Idade</strong>
-                        <p>{naverShow.birthdate}</p>
+                        <p>{idade}</p>
 
                         <strong>Tempo de empresa</strong>
-                        <p>{naverShow.admission_date}</p>
+                        <p>{temp}</p>
 
                         <strong>Projetos que participou</strong>
                         <p>{naverShow.project}</p>
