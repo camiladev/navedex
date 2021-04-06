@@ -4,6 +4,13 @@ Projeto proposto para a realização do Desafio Técnico da empresa Nave.rs
 
 **Telas**
 
+**Vídeos do sistema em funcionamento**
+
+
+- Versão mobile: https://youtu.be/xC7gfqhebdo
+
+- Versão desktop: https://youtu.be/CM8y0Lz3WmY
+
 ### :page_with_curl: Informações sobre o Projeto
 
 O Navedex é um sistema web onde é possivel visualizar informações dos funcionários, tais como: nome, cargo, idade, cargo, tempo de empresa e projetos que participou.
