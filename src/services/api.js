@@ -147,11 +147,17 @@ function getLogin(value){
         })
     })
     .then( async response => {
-        if(response.ok){
+        console.log(response.status)
+        if(response.status === 200){
 
-            var jsonData = await response.json();
-    
-            return jsonData.token;
+            if(response.ok){
+                var jsonData = await response.json();
+        
+                return jsonData.token;
+            }
+        }else{
+
+            return response.status
         }
     })
     .catch( error => {

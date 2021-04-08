@@ -23,10 +23,16 @@ export function AuthProvider({children}){
     }
     function onAuthenticated(){
         const response = Api.getLogin({ email, pass}).then( token => {
+            if(token >= 400){
+                alert('E-mail e/ou senha incorreto !! ')
+            }
+            else{
                 setToken(token)
                 setIsAuthenticated(true)          
+    
+                return response
+            }
             
-            return response
         }).catch( error => {
             alert('E-mail e/ou senha incorreto !! ')
         })
