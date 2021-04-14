@@ -26,8 +26,8 @@ export default function Listing(){
                 </header>
                 <main>
                     <div className="listing">
-                        {naver.length === 0 && (<div>Carregando Navers</div>)}
-                        { naver.map( navers => {
+                        {naver?.length === 0 && (<div>Carregando Navers</div>)}
+                        { naver?.map( navers => {
                             return(
                                 <div className="card" >
                                     <img src={navers.url} alt={navers.name} onClick={() => showNaver(navers.id)} />

@@ -4,7 +4,7 @@ import { FaTrash, FaPen } from "react-icons/fa";
 import { IoMdClose } from 'react-icons/io';
 import { NaverContext } from "../contexts/NaverContext";
 import '../styles/showNaverModal.css'
-import CalculaTemp from '../components/CalculaTemp'
+import CalculaTemp from '../utils/CalculaTemp'
 
 export default function ShowNaverModal(){
     const { closeNaver, naverShow, deletNaver, editNaver } = useContext(NaverContext);
